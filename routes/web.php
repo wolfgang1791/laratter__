@@ -11,15 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-	$links = array(
-		'https://www.google.com.pe'=>'Google',
-		'https://www.xvideos.com' =>'XVIDEOS'
+Route::get('/', 'PageController@home');
 
-	);
-    return view('welcome',['links'=>$links]);
-});
-
-Route::get('/acerca',function(){
-	return view('about');
-});
+Route::get('/acerca','PageController@about');
