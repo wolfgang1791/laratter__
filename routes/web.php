@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$links = array(
+		'https://www.google.com.pe'=>'Google',
+		'https://www.xvideos.com' =>'XVIDEOS'
+
+	);
+    return view('welcome',['links'=>$links]);
 });
 
 Route::get('/acerca',function(){
