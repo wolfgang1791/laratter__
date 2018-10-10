@@ -8,17 +8,14 @@ class PageController extends Controller
 {
     public function home()
     {
-    	$links = array(
-		'https://www.google.com.pe'=>'Google',
-		'https://www.xvideos.com' =>'XVIDEOS'
-		);
+    	$messages = [
+    		["id"=>1,"content"=>"Primer mensaje","image"=>'https://lorempixel.com/600/338?1'],
+    		["id"=>2,"content"=>"Segundo mensaje","image"=>'https://lorempixel.com/600/338?2'],
+    		["id"=>3,"content"=>"Tercero mensaje","image"=>'https://lorempixel.com/600/338?3'],
+    		["id"=>4,"content"=>"Cuarto mensaje","image"=>'https://lorempixel.com/600/338?4']
+    	];
     
-    	return view('welcome',['links'=>$links]);
+    	return view('welcome',['messages'=>$messages]);
     
-    }
-
-    public function about()
-    {
-    	return view('about');
     }
 }
