@@ -13,4 +13,10 @@ class MessagesController extends Controller
     	echo $message;
     	return view('messages.show',["message"=>$message]);
     }
+
+    public function create(Request $request)
+    {
+    	dd($request->all());
+    }
+
 }
