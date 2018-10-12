@@ -12,4 +12,5 @@
 */
 
 Route::get('/', 'PageController@home');
+Route::get('/messages/{message}', 'MessagesController@show');
 
