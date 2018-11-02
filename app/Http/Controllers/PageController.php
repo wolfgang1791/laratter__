@@ -10,7 +10,7 @@ class PageController extends Controller
     public function home()
     {
     	$messages = Message::all();
-    	//dd($messages);
+    	//dd($messages[1]);
     	return view('welcome',['messages'=>$messages]);
     
     }

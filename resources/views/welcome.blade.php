@@ -13,9 +13,14 @@
 </div>
 <div class="row">
     <form action="messages/create" method="post">
-        <div class="form-group">
-            {{ csrf_field()}}
-            <input placeholder="Que chas estas pensando?" type="text" name="message" class="form-controller">
+        <div class="form-group @if($errors->has('message')) has-danger @endif">
+            {{ csrf_field() }}
+            <input placeholder="Que cha' estas pensando?" type="text" name="message" class="form-controller">
+            @if ( $errors->has('message') )
+                @foreach($errors->get('message') as $error)
+                    <div class="form-control-feedback">{{$error}}</div>
+                @endforeach
+            @endif
         </div>
     </form>
 </div>
@@ -29,7 +34,7 @@
         </p>
     </div>
     @empty
-    <p>FUCK YOU no hay nada</p>
+        <p>FUCK YOU no hay nada</p>
     @endforelse
 </div>
 @endsection
