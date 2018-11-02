@@ -26,15 +26,21 @@
 </div>
 <div class="row">
     @forelse($messages as $message)
-    <div class="col-md-6">
-        <img class="img-thumbnail" src="{{$message->image}}">
-        <p class="card-text">
-            {{$message->content}}
-            <a href="/messages/{{$message->id}}">Leer más</a>
-        </p>
-    </div>
+        <div class="col-md-6">
+            <img class="img-thumbnail" src="{{$message->image}}">
+            <p class="card-text">
+                {{$message->content}}
+                <a href="/messages/{{$message->id}}">Leer más</a>
+            </p>
+        </div>
     @empty
         <p>FUCK YOU no hay nada</p>
     @endforelse
+
+    @if(count($messages))
+    <div class="mt-2 mx-auto">
+        {{$messages->links()}}<!-- 'pagination::bootstrap-4'-->
+    </div>
+    @endif
 </div>
 @endsection
