@@ -24,7 +24,7 @@ class CreateMessageRequest extends FormRequest
     public function rules()
     {
         return [
-            'message'=>['required','max:14','min:2']
+            'message'=>['required','max:191','min:2']
         ];
     }
 
