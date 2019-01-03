@@ -16,8 +16,10 @@ class MessagesController extends Controller
     }
 
     public function create(CreateMessageRequest $request)
-    {
+    {   
+        $usuario = $request->user();
     	$message = Message::create([
+            'user_id'=>$usuario->id,
             'content'=>$request->input("message"),
             'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2hKudmXMJ9_SZTE3pYWfrZrAKoZLQ0MYZ1_lhYrVA8MGXY56g'
         ]);
