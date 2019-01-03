@@ -38,7 +38,7 @@
     @endforelse
 
     @if(count($messages))
-    <div class="mt-2 mx-auto">
+    <div class="mt-2 mx-auto"><!-- margin top margin izq der -->
         {{$messages->links()}}<!-- 'pagination::bootstrap-4'-->
     </div>
     @endif
