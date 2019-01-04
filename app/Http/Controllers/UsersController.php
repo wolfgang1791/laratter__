@@ -22,6 +22,7 @@ class UsersController extends Controller
     	//dd($user);
     	return view('users.follows',[
     		'user' => $user,
+    		'follows'=>$user->follows
     	]);
     }
 
@@ -39,5 +40,27 @@ class UsersController extends Controller
     private function findByUsername($username){
     	$user = User::where('username',$username)->first();
     	return $user;
+    }
+
+    public function unfollow($username,Request $request)
+    {
+    	$user = $this->findByUsername($username);
+    	
+    	$me = $request->user();
+    	
+    	$me->follows()->detach($user); //agregue
+
+    	return redirect("/$username")->withSuccess("Usuario no seguido!");
+    }
+
+    public function followers($username)
+    {
+    	$user = $this->findByUsername($username);
+
+    	return view('users.follows',[
+    			'user'=>$user,
+    			'follows'=>$user->followers
+    			]);
+
     }
 }
