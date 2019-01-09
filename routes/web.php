@@ -26,4 +26,5 @@ Route::post('/{username}/unfollow', 'UsersController@unfollow');
 
 Route::get('/auth/facebook', 'SocialAuthController@facebook');
 Route::get('/auth/facebook/callback', 'SocialAuthController@callback');
+Route::post('/auth/facebook/register', 'SocialAuthController@register');
 //Route::get('/home', 'HomeController@index')->name('home');

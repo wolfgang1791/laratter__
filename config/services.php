@@ -37,8 +37,8 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '217098205899499',
-        'client_secret' => '3c03b2da52f854a7e8e6de1f3149e1e3',
-        'redirect' => 'http://localhost:8000/auth/facebook/callback'
+        'client_id' => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT')
     ]
 ];  
