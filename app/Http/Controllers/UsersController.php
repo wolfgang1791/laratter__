@@ -8,12 +8,18 @@ class UsersController extends Controller
 {
     //
     public function show($username)
-    {
-    	$user = $this->findByUsername($username);
-    	//dd($user);
-    	return view('users.show',[
-    		'user' => $user,
-    	]);
+    {   
+        if($username != 'home'){
+        	$user = $this->findByUsername($username);
+        	//dd($user);
+        	return view('users.show',[
+        		'user' => $user,
+        	]);
+        }
+        else
+        {
+         return view('home');
+        }
     }
 
     public function follows($username)
