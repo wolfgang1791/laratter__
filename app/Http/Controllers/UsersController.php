@@ -12,7 +12,7 @@ class UsersController extends Controller
     //
     public function show($username)
     {   
-        throw new \Exception("simula el error");
+        //throw new \Exception("simula el error"); 
         if($username != 'home'){
         	$user = $this->findByUsername($username);
         	//dd($user);

@@ -25,6 +25,7 @@ Route::post('/auth/facebook/register', 'SocialAuthController@register');
 
 
 Route::get('/home', 'HomeController@index');
+Route::get('/messages', 'MessagesController@search');
 Route::group(['middleware'=>'auth'],function(){
 	Route::post('/{username}/dms/','UsersController@sendPrivateMessage');
 	Route::post('/messages/create', 'MessagesController@create')->middleware('auth');
