@@ -18,10 +18,12 @@ class MessagesController extends Controller
     public function create(CreateMessageRequest $request)
     {   
         $usuario = $request->user();
+        $imagen = $request->file('image');
     	$message = Message::create([
             'user_id'=>$usuario->id,
             'content'=>$request->input("message"),
-            'image'=>'https://i.pinimg.com/736x/94/0e/83/940e83eb09a954567d99e6314e3f3e72.jpg'
+            'image'=>$imagen->store('messages','public'),
+            //'https://i.pinimg.com/736x/94/0e/83/940e83eb09a954567d99e6314e3f3e72.jpg'
         ]);
 
         return redirect('/messages/'.$message->id);
