@@ -6,7 +6,7 @@
 	<a class="btn btn-link" href="/{{$user->username}}/followers">Seguidores <span class="badge badge-default">{{ $user->followers->count() }}</a>
 	@if(Auth::check())
 		@if(Gate::allows('dms',$user))
-			<form action="/{{$user->name}}/dms" method="post">
+			<form action="/{{$user->username}}/dms" method="post">
 				{{ csrf_field()}}
 				<input type="text" name="message"	class="form-control">
 				<button type="submit" class="btn btn-success">Enviar DM</button>
