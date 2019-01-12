@@ -12,6 +12,7 @@ class UsersController extends Controller
     //
     public function show($username)
     {   
+        throw new \Exception("simula el error");
         if($username != 'home'){
         	$user = $this->findByUsername($username);
         	//dd($user);
@@ -47,7 +48,7 @@ class UsersController extends Controller
     }
 
     private function findByUsername($username){
-    	$user = User::where('username',$username)->first();
+    	$user = User::where('username',$username)->firstOrFail();//devuelve usuario o 404
     	return $user;
     }
 
