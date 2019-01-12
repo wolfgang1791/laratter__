@@ -21,7 +21,7 @@ class MessagesController extends Controller
     	$message = Message::create([
             'user_id'=>$usuario->id,
             'content'=>$request->input("message"),
-            'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2hKudmXMJ9_SZTE3pYWfrZrAKoZLQ0MYZ1_lhYrVA8MGXY56g'
+            'image'=>'https://i.pinimg.com/736x/94/0e/83/940e83eb09a954567d99e6314e3f3e72.jpg'
         ]);
 
         return redirect('/messages/'.$message->id);
