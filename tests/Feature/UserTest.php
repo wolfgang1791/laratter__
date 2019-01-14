@@ -40,7 +40,7 @@ class UserTest extends TestCase
         $other = factory(User::class)->create();
 
         $response = $this->actingAs($user)->post($other->username.'/follow');
-        $this->assertDatabaseHas('followers',[
+        $this->assertDatabaseHas('followers',[//revisa la db -- tabla, columnas
             'user_id'=>$user->id,
             'followed_id'=>$other->id
         ]);

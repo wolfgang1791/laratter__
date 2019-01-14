@@ -13943,7 +13943,7 @@ window.Vue = __webpack_require__(37);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(40));
+Vue.component('response', __webpack_require__(40)); // etiqueta en el front
 
 var app = new Vue({
   el: '#app'
@@ -49504,7 +49504,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/ExampleComponent.vue"
+Component.options.__file = "resources/js/components/Response.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -49513,9 +49513,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-299e239e", Component.options)
+    hotAPI.createRecord("data-v-6ff8212c", Component.options)
   } else {
-    hotAPI.reload("data-v-299e239e", Component.options)
+    hotAPI.reload("data-v-6ff8212c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -49655,12 +49655,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
+	props: ['message'],
+	data: function data() {
+		return {
+			responses: []
+		};
+	},
+
+	methods: {
+		load: function load() {
+			var _this = this;
+
+			axios.get('/api/messages/' + this.message + '/responses').then(function (res) {
+				_this.responses = res.data;
+			});
+		}
+	}
 });
 
 /***/ }),
@@ -49671,38 +49683,50 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { href: "#" },
+          on: {
+            click: function($event) {
+              _vm.load()
+            }
+          }
+        },
+        [_vm._v("Ver Respuestas")]
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.responses, function(response) {
+        return _c("div", { staticClass: " mt-2 col-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-block" }, [
+              _vm._v("\n\t\t\t\t\t" + _vm._s(response.message) + "\n\t\t\t\t")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "card-footer text-muted" }, [
               _vm._v(
-                "\n                    I'm an example component.\n                "
+                "\n\t\t\t\t\t" + _vm._s(response.created_at) + "\n\t\t\t\t"
               )
             ])
           ])
         ])
-      ])
-    ])
-  }
-]
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-299e239e", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-6ff8212c", module.exports)
   }
 }
 

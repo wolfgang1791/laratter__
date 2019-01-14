@@ -1,9 +1,15 @@
 @extends('layout.app')
 
 @section('content')
-	<h1>{{$user->name}}</h1> 
 	<a class="btn btn-link" href="/{{$user->username}}/follows">Sigue a <span class="badge badge-default">{{ $user->follows->count() }}</span></a>
 	<a class="btn btn-link" href="/{{$user->username}}/followers">Seguidores <span class="badge badge-default">{{ $user->followers->count() }}</a>
+	<div class="row">
+		<img class="img-thumbnail" src="{{$user->avatar}}">
+	</div>
+	<div class="row">
+		<h1>{{$user->name}}</h1> 
+	</div>	
+		
 	@if(Auth::check())
 		@if(Gate::allows('dms',$user))
 			<form action="/{{$user->username}}/dms" method="post">
