@@ -4,12 +4,12 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
+use Laravel\Scout\Searchable;//.l.
 
 class Message extends Model
 {
 
-    use Searchable;
+    use Searchable; // .l.
 
     protected $guarded = [];
 
@@ -25,5 +25,12 @@ class Message extends Model
     	}
     	
     	return \Storage::disk('public')->url($image);
+    }
+
+    public function toSearchableArray()
+    {
+        $this->load('user');
+
+        return $this->toArray(); 
     }
 }
