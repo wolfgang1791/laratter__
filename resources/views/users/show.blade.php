@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('content')
 	<a class="btn btn-link" href="/{{$user->username}}/follows">Sigue a <span class="badge badge-default">{{ $user->follows->count() }}</span></a>
