@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('response', require('./components/Response.vue'));// etiqueta en el front
+Vue.component('notifications', require('./components/Notifications.vue'));
 
 const app = new Vue({
     el: '#app'

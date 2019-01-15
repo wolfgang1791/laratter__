@@ -111,4 +111,9 @@ class UsersController extends Controller
         ]);
         //dd($conversation);
     }
+
+    public function notifications(Request $request)
+    {
+        return $request->user()->notifications;
+    }
 }

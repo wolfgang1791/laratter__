@@ -60,6 +60,10 @@
                                 @endif
                             </li>
                         @else
+                            <li class="nav-item drpdown mr-2">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notifications<span class="caret"></span></a>
+                                <notifications :user="{{Auth::user()->id}}"></notifications> 
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
